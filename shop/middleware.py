@@ -1,3 +1,4 @@
+from django.utils import timezone
 from .models import WebRequest
 
 
@@ -15,7 +16,8 @@ class TrackWebRequestsMiddleware:
             path=request.path,
             method=request.method,
             status_code=response.status_code,
-            uri=request.build_absolute_uri()
+            uri=request.build_absolute_uri(),
+            time=timezone.now()
         ).save()
 
         return response

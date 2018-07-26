@@ -3,14 +3,20 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <title>Title</title>
+        <title>Ye Olde Shoppe</title>
         <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
     </head>
-    <body>
+    <body class="container">
+        <header class="page-header">
+            <h2>Ye Olde Shoppe</h2>
+        </header>
         <main class="container">
             {% block content %}
             {% endblock %}
         </main>
+        <footer class="page-footer">
+            &copy; {% now 'Y' %} Ye Olde Shoppe
+        </footer>
     </body>
 </html>

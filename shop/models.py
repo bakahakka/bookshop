@@ -1,9 +1,25 @@
 from django.db import models
 from django.utils import timezone
+import logging
+
+logger = logging.getLogger(__name__)
+
+
+class LogSaveOrDeleteMixin(models.Model):
+    class Meta:
+        abstract = True
+
+    def delete(self, *args, **kwargs):
+        super(LogSaveOrDeleteMixin, self).delete(*args, **kwargs)
+        logger.info(" {} instance {} (pk {}) deleted".format(self._meta, self, self.pk))
+
+    def save(self, *args, **kwargs):
+        super(LogSaveOrDeleteMixin, self).save(*args, **kwargs)
+        logger.info(" {} instance {} (pk {}) saved".format(self._meta, self, self.pk))
 
 
 # Create your models here.
-class Book(models.Model):
+class Book(LogSaveOrDeleteMixin, models.Model):
     author = models.CharField(max_length=200)
     title = models.CharField(max_length=150)
     ISBN = models.CharField(max_length=50)
@@ -23,9 +39,12 @@ class WebRequest(models.Model):
     status_code = models.IntegerField()
     path = models.CharField(max_length=500)
     uri = models.CharField(max_length=500)
+    time = models.DateTimeField(default=timezone.now())
 
     def __str__(self):
-        return '[{}] {} {} {}'.format(self.method, self.path, self.uri, self.status_code)
-
-    def create(self):
-        self.save()
+        return '[{}] {} {} {} {}'.format(
+            self.method,
+            self.path,
+            self.uri,
+            self.status_code,
+            self.time)

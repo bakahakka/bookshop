@@ -11,6 +11,6 @@ def book_list(request):
 
 
 def log_view(request):
-    reqs = WebRequest.objects.all()[:10]
+    reqs = WebRequest.objects.all().order_by('-time')[:10]
     return render(request, 'shop/log_view.html', {'reqs': reqs})
 
