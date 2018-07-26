@@ -1,0 +1,32 @@
+[
+  {
+    "model": "shop.book",
+    "pk": 1,
+    "fields": {
+      "title": "Also sprach Zarathustra",
+      "author": "Friedrich Nietzsche",
+      "ISBN": "9783866477773",
+      "price": 9.99
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": 2,
+    "fields": {
+      "title": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "ISBN": "9783866477773",
+      "price": 13.25
+    }
+  },
+  {
+    "model": "shop.book",
+    "pk": 3,
+    "fields": {
+      "title": "Neuromancer",
+      "author": "William Gibson",
+      "ISBN": "9783866477773",
+      "price": 8.14
+    }
+  }
+]
