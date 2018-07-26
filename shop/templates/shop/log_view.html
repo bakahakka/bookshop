@@ -1,0 +1,9 @@
+{% extends 'shop/base.html' %}
+
+{% block content %}
+    <pre>
+        {% for request in reqs %}
+            [{{ request.method }}] '{{ request.path }}' {{ request.uri }} {{ request.status_code }}
+        {% endfor %}
+    </pre>
+{% endblock %}

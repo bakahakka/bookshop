@@ -12,3 +12,20 @@ class Book(models.Model):
 
     def __str__(self):
         return "{} by {}".format(self.title, self.author)
+
+    def create(self):
+        self.publish_date = timezone.now()
+        self.save()
+
+
+class WebRequest(models.Model):
+    method = models.CharField(max_length=20)
+    status_code = models.IntegerField()
+    path = models.CharField(max_length=500)
+    uri = models.CharField(max_length=500)
+
+    def __str__(self):
+        return '[{}] {} {} {}'.format(self.method, self.path, self.uri, self.status_code)
+
+    def create(self):
+        self.save()
