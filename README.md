@@ -1,4 +1,4 @@
-#Test task
+# Test task
 
 To bootstrap the application, `cd` into the root  folder and run
 ```bash
@@ -10,4 +10,4 @@ To list all the Book models in the database run
 ```bash
     python manage.py displaybooks
 ```
-The default order is ascending. If you want to specify the order, run it with `--sort=asc` or `--sort=desc` arguments.
+The default order is ascending sorted by `publish_date`. If you want to specify the order, run it with `--sort=asc` or `--sort=desc` arguments.
