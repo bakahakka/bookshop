@@ -5,7 +5,12 @@
         <meta charset="UTF-8">
         <title>Ye Olde Shoppe</title>
         <link rel="stylesheet" href="{% static 'css/lib/bootstrap.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css/lib/bootstrap-datepicker.min.css' %}">
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <script src="{% static 'js/lib/jquery.min.js' %}"></script>
+        <script src="{% static 'js/lib/moment.min.js' %}"></script>
+        <script src="{% static 'js/lib/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/lib/bootstrap-datepicker.min.js' %}"></script>
     </head>
     <body class="container">
         <header class="page-header">
@@ -18,5 +23,6 @@
         <footer class="page-footer">
             &copy; {% now 'Y' %} Ye Olde Shoppe
         </footer>
+        <script src="{% static 'js/script.js' %}"></script>
     </body>
 </html>

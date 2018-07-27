@@ -1,6 +1,7 @@
 {% extends 'shop/base.html' %}
 
 {% block content %}
+    <a href="{% url 'add_book' %}">Add book</a>
     <div class="row">
         {% for book in books %}
             <div class="book col-lg-8 text-justify">
@@ -8,7 +9,7 @@
                 <p>ISBN: {{ book.ISBN }}</p>
                 <p>Price: {{ book.price }}</p>
                 <p>Published: {{ book.publish_date }}</p>
-                <a href="/admin/shop/book/{{ book.pk }}/change">Edit book info</a>
+                <a href="{% url 'edit_book' pk=book.pk %}">Edit book info</a>
             </div>
         {% endfor %}
     </div>
