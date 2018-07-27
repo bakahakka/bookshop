@@ -1,4 +1,4 @@
-#Test task
+# Test task
 
 To bootstrap the application, `cd` into the root  folder and run
 ```bash
