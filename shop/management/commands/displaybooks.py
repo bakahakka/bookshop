@@ -22,8 +22,11 @@ class Command(BaseCommand):
         :return:
         """
         for item in items:
-            self.stdout.write('pk: #{}: {}, ISBN: {}, price: {}'
-                              .format(item.pk, str(item), item.ISBN, item.price))
+            self.stdout.write('pk: #{}: {}, ISBN: {}, price: {}'.format(
+                item.pk,
+                str(item),
+                item.ISBN,
+                item.price))
 
     def handle(self, *args, **options):
         if options['sort'] == 'asc':

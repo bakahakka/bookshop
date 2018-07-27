@@ -11,11 +11,13 @@ class LogSaveOrDeleteMixin(models.Model):
 
     def delete(self, *args, **kwargs):
         super(LogSaveOrDeleteMixin, self).delete(*args, **kwargs)
-        logger.info(" {} instance {} (pk {}) deleted".format(self._meta, self, self.pk))
+        logger.info(" {} instance {} (pk {}) deleted"
+                    .format(self._meta, self, self.pk))
 
     def save(self, *args, **kwargs):
         super(LogSaveOrDeleteMixin, self).save(*args, **kwargs)
-        logger.info(" {} instance {} (pk {}) saved".format(self._meta, self, self.pk))
+        logger.info(" {} instance {} (pk {}) saved"
+                    .format(self._meta, self, self.pk))
 
 
 # Create your models here.
