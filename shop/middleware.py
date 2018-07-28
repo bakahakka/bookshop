@@ -3,6 +3,10 @@ from .models import WebRequest
 
 
 class TrackWebRequestsMiddleware:
+    """
+    Tracking each HTTP request excluding admin or favicon requests
+    Saving the request data to database
+    """
     def __init__(self, get_response):
         self.get_response = get_response
 

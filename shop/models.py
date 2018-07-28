@@ -6,6 +6,11 @@ logger = logging.getLogger(__name__)
 
 
 class LogSaveOrDeleteMixin(models.Model):
+    """
+    Custom mixin that extends Model functionality
+    Overrides `delete` and `save` methods,
+    Adding logger and logging on each transaction
+    """
     class Meta:
         abstract = True
 
@@ -22,6 +27,9 @@ class LogSaveOrDeleteMixin(models.Model):
 
 # Create your models here.
 class Book(LogSaveOrDeleteMixin, models.Model):
+    """
+    Including LogSaveOrDeleteMixin to log on each delete or save action
+    """
     author = models.CharField(max_length=200)
     title = models.CharField(max_length=150)
     ISBN = models.CharField(max_length=50)
