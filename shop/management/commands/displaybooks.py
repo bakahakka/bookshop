@@ -34,13 +34,20 @@ class Command(BaseCommand):
                 item.ISBN,
                 item.price))
 
+    def get_books(self, order=None):
+        try:
+            if order is not None:
+                books = Book.objects.all().order_by(order)
+            else:
+                books = Book.objects.all()
+            self.print_out(books)
+        except Book.DoesNotExist:
+            self.stderr.write('There are no books in the database yet.')
+
     def handle(self, *args, **options):
         if options['sort'] == 'asc':
-            books = Book.objects.all().order_by('publish_date')
-            self.print_out(books)
+            self.get_books('publish_date')
         elif options['sort'] == 'desc':
-            books = Book.objects.all().order_by('-publish_date')
-            self.print_out(books)
+            self.get_books('-publish_date')
         else:
-            books = Book.objects.all()
-            self.print_out(books)
+            self.get_books()
