@@ -1,5 +1,7 @@
 # Test task
 
+Python version: 3.6.6.
+
 To bootstrap the application, `cd` into the root  folder and run
 ```bash
     bash bootstrap
